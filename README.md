@@ -83,3 +83,13 @@ Nome	Função	Parte
 Victtoria Correia	Backend Base + CRUDs iniciais	Parte A
 Colega 1	Livros + Relatórios	Parte B
 Colega 2	Membros + Empréstimos	Parte C
+
+
+🧱 Resumo das entidades:
+
+
+Author >	Representa os autores dos livros >	name, country, birthYear, bio
+Category > 	Classificação dos livros >	name, description, createdAt, updatedAt
+Book	> Livros cadastrados no sistema >	title, isbn, publishedYear, totalCopies, availableCopies
+Member > Usuários que pegam livros emprestados >	fullName, email, phone, registeredAt, isActive
+Loan >	Empréstimos de livros >	memberId, bookId, loanDate, dueDate, returnDate, status, fineCents
