@@ -27,11 +27,11 @@ Construído com **NestJS + Prisma + PostgreSQL**
 ## 🚀 Como Rodar o Projeto
 
 ### 1️⃣ Clonar o repositório
-```bash
+
 git clone https://github.com/Victtoriacorreia01/biblioteca-api-np2.git
 cd biblioteca-api-np2
 
-2️⃣ Instalar dependências
+### 2️⃣ Instalar dependências
 npm install
 
 3️⃣ Criar e configurar .env
