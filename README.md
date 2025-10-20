@@ -38,13 +38,13 @@ npm install
 
 Crie um arquivo .env na raiz com o conteúdo corretamente!
 
-4️⃣ Rodar migrations
+4️⃣ Rodar migrations >
 npx prisma migrate dev
 
-5️⃣ Subir o servidor
+5️⃣ Subir o servidor >
 npm run start:dev
 
-6️⃣ Acessar documentação
+6️⃣ Acessar documentação >
 
 📘 Swagger: http://localhost:3000/docs
 
