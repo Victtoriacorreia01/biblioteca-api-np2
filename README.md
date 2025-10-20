@@ -88,8 +88,25 @@ Colega 2	Membros + Empréstimos	Parte C
 🧱 Resumo das entidades:
 
 
-Author >	Representa os autores dos livros >	name, country, birthYear, bio
-Category > 	Classificação dos livros >	name, description, createdAt, updatedAt
-Book	> Livros cadastrados no sistema >	title, isbn, publishedYear, totalCopies, availableCopies
-Member > Usuários que pegam livros emprestados >	fullName, email, phone, registeredAt, isActive
-Loan >	Empréstimos de livros >	memberId, bookId, loanDate, dueDate, returnDate, status, fineCents
+Author:
+Representa os autores dos livros >	name, country, birthYear, bio
+
+Category:
+Classificação dos livros >	name, description, createdAt, updatedAt
+
+Book:
+Livros cadastrados no sistema >	title, isbn, publishedYear, totalCopies, availableCopies
+
+Member:
+Usuários que pegam livros emprestados >	fullName, email, phone, registeredAt, isActive
+
+Loan: 
+Empréstimos de livros >	memberId, bookId, loanDate, dueDate, returnDate, status, fineCents
+
+### ✨ Funcionalidade Extra (além do CRUD)
+
+Foi adicionada uma rota personalizada em AuthorsController:
+
+GET /authors/by-country/:country
+
+Retorna todos os autores cujo campo country contém o termo informado, ignorando maiúsculas e minúsculas.
