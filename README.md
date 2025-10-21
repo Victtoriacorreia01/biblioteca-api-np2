@@ -49,8 +49,9 @@ npm run start:dev
 
 📘 Swagger: http://localhost:3000/docs
 
-🧩 Funcionalidades
-✅ Parte A — Victtoria Correia
+### 🧩 Funcionalidades
+
+# ✅ Parte A — Victtoria Correia
 
 Inicialização completa do projeto (Nest, Prisma, Swagger)
 
@@ -58,20 +59,20 @@ CRUD de Autores (Authors)
 
 CRUD de Categorias (Categories)
 
-🧠 Parte B — Colega 1
+# 🧠 Parte B — Colega 1
 
 CRUD de Livros (Books)
 
 Endpoints de Relatórios (Reports) (não-CRUD)
 
-👤 Parte C — Colega 2
+# 👤 Parte C — Colega 2
 
 CRUD de Membros (Members)
 
 CRUD de Empréstimos (Loans) (com regras e multas automáticas)
 
 
-📦 Scripts Úteis
+### 📦 Scripts Úteis
 Comando	Descrição
 npm run start:dev	Inicia a API em modo dev
 npx prisma migrate dev	Executa migrations
@@ -79,29 +80,29 @@ npx prisma studio	Abre painel visual do banco
 npx prisma db seed	Popula dados iniciais
 
 
-👥 Equipe
+### 👥 Equipe
 Nome	Função	Parte
 Victtoria Correia	Backend Base + CRUDs iniciais	Parte A
 Colega 1	Livros + Relatórios	Parte B
 Colega 2	Membros + Empréstimos	Parte C
 
 
-🧱 Resumo das entidades:
+### 🧱 Resumo das entidades:
 
 
-Author:
+# Author:
 Representa os autores dos livros >	name, country, birthYear, bio
 
-Category:
+# Category:
 Classificação dos livros >	name, description, createdAt, updatedAt
 
-Book:
+# Book:
 Livros cadastrados no sistema >	title, isbn, publishedYear, totalCopies, availableCopies
 
-Member:
+# Member:
 Usuários que pegam livros emprestados >	fullName, email, phone, registeredAt, isActive
 
-Loan: 
+# Loan: 
 Empréstimos de livros >	memberId, bookId, loanDate, dueDate, returnDate, status, fineCents
 
 ### ✨ Funcionalidade Extra (além do CRUD)
