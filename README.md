@@ -1,9 +1,10 @@
 <div align="center">
 
 # 📚 Biblioteca API — NP2  
-### Backend REST de uma Biblioteca Virtual Pública  
+### Backend REST de uma Biblioteca Virtual Pública para NP2 
 Construído com **NestJS + Prisma + PostgreSQL**
 
+### ✨ Desenvolvido por Victtoria Correia, João Vitor Lima e ...
 <img src="https://img.shields.io/badge/NestJS-v11-red?style=for-the-badge" />
 <img src="https://img.shields.io/badge/Prisma-v6-blue?style=for-the-badge" />
 <img src="https://img.shields.io/badge/PostgreSQL-16+-blue?style=for-the-badge" />
