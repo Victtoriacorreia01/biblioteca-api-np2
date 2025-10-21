@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div align="center">
 
 # 📚 Biblioteca API — NP2  
@@ -112,3 +113,50 @@ Foi adicionada uma rota personalizada em AuthorsController:
 GET /authors/by-country/:country
 
 Retorna todos os autores cujo campo country contém o termo informado, ignorando maiúsculas e minúsculas.
+=======
+# 📚 Biblioteca API — NP2 (Backend REST)
+
+API REST para **Biblioteca Virtual Pública** (NP2) com **NestJS + Prisma + PostgreSQL**.
+Documentação disponível em **Swagger**.
+
+## 🧰 Stack
+- **Node.js 20+**, **NestJS**, **TypeScript**
+- **Prisma ORM** (migrations)
+- **PostgreSQL**
+- **Swagger** (OpenAPI) em `/docs`
+
+---
+
+## ✅ Requisitos
+- Node 20+ (`node -v`)
+- npm 10+ (`npm -v`)
+- PostgreSQL 16+ (local) **ou** Docker
+- Git
+
+---
+
+## 🔐 Configuração de ambiente
+Crie um arquivo **`.env`** na raiz (use o exemplo abaixo).
+> Nunca comitar senhas no repositório.
+
+```env
+# .env (exemplo) — ajuste se necessário
+DATABASE_URL="postgresql://postgres:postgres@localhost:5432/biblioteca?schema=public"
+PORT=3000
+
+Como rodar (Passo a passo)
+# 1) Instalar dependências
+npm i
+
+# 2) Gerar/atualizar o banco (migrations)
+npx prisma migrate dev
+
+# (opcional) Popular dados de exemplo
+# npx prisma db seed
+
+# 3) Subir a API em desenvolvimento
+npm run start:dev
+
+Acesse o Swagger: http://localhost:3000/docs
+
+>>>>>>> 7da3090 (feat: nova funcionalide de filtragem)

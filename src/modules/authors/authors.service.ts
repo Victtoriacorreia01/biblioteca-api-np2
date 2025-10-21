@@ -23,4 +23,9 @@ export class AuthorsService {
     try { return await this.repo.remove(id); }
     catch { throw new BadRequestException('Não foi possível remover o autor'); }
   }
+
+  // ✅ NOVO
+  findByCountry(country: string) {
+    return this.repo.findByCountry(country);
+  }
 }

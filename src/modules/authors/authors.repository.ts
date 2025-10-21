@@ -5,9 +5,31 @@ import { Prisma } from '@prisma/client';
 @Injectable()
 export class AuthorsRepository {
   constructor(private prisma: PrismaService) {}
-  create(data: Prisma.AuthorCreateInput) { return this.prisma.author.create({ data }); }
-  findAll() { return this.prisma.author.findMany(); }
-  findOne(id: number) { return this.prisma.author.findUnique({ where: { id } }); }
-  update(id: number, data: Prisma.AuthorUpdateInput) { return this.prisma.author.update({ where: { id }, data }); }
-  remove(id: number) { return this.prisma.author.delete({ where: { id } }); }
+
+  create(data: Prisma.AuthorCreateInput) {
+    return this.prisma.author.create({ data });
+  }
+
+  findAll() {
+    return this.prisma.author.findMany();
+  }
+
+  findOne(id: number) {
+    return this.prisma.author.findUnique({ where: { id } });
+  }
+
+  update(id: number, data: Prisma.AuthorUpdateInput) {
+    return this.prisma.author.update({ where: { id }, data });
+  }
+
+  remove(id: number) {
+    return this.prisma.author.delete({ where: { id } });
+  }
+
+  // ✅ NOVO MÉTODO (agora DENTRO da classe)
+  findByCountry(country: string) {
+    return this.prisma.author.findMany({
+      where: { country: { contains: country, mode: 'insensitive' } },
+    });
+  }
 }
