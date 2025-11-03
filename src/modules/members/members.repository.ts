@@ -10,7 +10,12 @@ export class MembersRepository {
 
   async create(createMemberDto: CreateMemberDto): Promise<Member> {
     return this.prisma.member.create({
-      data: createMemberDto,
+      data: {
+        fullName: createMemberDto.fullName,
+        email: createMemberDto.email,
+        phone: createMemberDto.phone || '', // Valor padrão para phone
+        isActive: createMemberDto.isActive ?? true, // Valor padrão true
+      },
     });
   }
 
@@ -35,7 +40,12 @@ export class MembersRepository {
   async update(id: number, updateMemberDto: UpdateMemberDto): Promise<Member> {
     return this.prisma.member.update({
       where: { id },
-      data: updateMemberDto,
+      data: {
+        ...(updateMemberDto.fullName && { fullName: updateMemberDto.fullName }),
+        ...(updateMemberDto.email && { email: updateMemberDto.email }),
+        ...(updateMemberDto.phone !== undefined && { phone: updateMemberDto.phone }),
+        ...(updateMemberDto.isActive !== undefined && { isActive: updateMemberDto.isActive }),
+      },
     });
   }
 

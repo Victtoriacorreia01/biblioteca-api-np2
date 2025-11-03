@@ -5,9 +5,8 @@ import { LoansRepository } from './loans.repository';
 import { PrismaService } from '../../../prisma/prisma.service';
 
 @Module({
-  imports: [PrismaService],
   controllers: [LoansController],
-  providers: [LoansService, LoansRepository],
+  providers: [LoansService, LoansRepository, PrismaService],
   exports: [LoansService],
 })
 export class LoansModule {}
