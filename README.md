@@ -5,7 +5,7 @@
 ### Backend REST de uma Biblioteca Virtual Pública para NP2 
 Construído com **NestJS + Prisma + PostgreSQL**
 
-### ✨ Desenvolvido por Victtoria Correia, João Vitor Lima e ...
+### ✨ Desenvolvido por Victtoria Correia, João Vitor Lima e Iatagan Andrade
 <img src="https://img.shields.io/badge/NestJS-v11-red?style=for-the-badge" />
 <img src="https://img.shields.io/badge/Prisma-v6-blue?style=for-the-badge" />
 <img src="https://img.shields.io/badge/PostgreSQL-16+-blue?style=for-the-badge" />
@@ -60,13 +60,13 @@ CRUD de Autores (Authors)
 
 CRUD de Categorias (Categories)
 
-# 🧠 Parte B — Colega 1
+# 🧠 Parte B — João Vitor Lima
 
 CRUD de Livros (Books)
 
 Endpoints de Relatórios (Reports) (não-CRUD)
 
-# 👤 Parte C — Colega 2
+# 👤 Parte C — Iatagan Andrade
 
 CRUD de Membros (Members)
 
@@ -85,7 +85,7 @@ npx prisma db seed	Popula dados iniciais
 Nome	Função	Parte
 Victtoria Correia	Backend Base + CRUDs iniciais	Parte A
 Colega 1	Livros + Relatórios	Parte B
-Colega 2	Membros + Empréstimos	Parte C
+Iatagan Andrade	Membros + Empréstimos	Parte C
 
 
 ### 🧱 Resumo das entidades:

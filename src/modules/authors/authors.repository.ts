@@ -1,35 +1,49 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../../../prisma/prisma.service';
-import { Prisma } from '@prisma/client';
+import { CreateAuthorDto } from './dto/create-author.dto';
+import { UpdateAuthorDto } from './dto/update-author.dto';
 
 @Injectable()
 export class AuthorsRepository {
-  constructor(private prisma: PrismaService) {}
+  constructor(private readonly prisma: PrismaService) {}
 
-  create(data: Prisma.AuthorCreateInput) {
-    return this.prisma.author.create({ data });
+  async create(createAuthorDto: CreateAuthorDto) {
+    return this.prisma.author.create({
+      data: createAuthorDto,
+    });
   }
 
-  findAll() {
+  async findAll() {
     return this.prisma.author.findMany();
   }
 
-  findOne(id: number) {
-    return this.prisma.author.findUnique({ where: { id } });
+  async findOne(id: number) {
+    return this.prisma.author.findUnique({
+      where: { id },
+    });
   }
 
-  update(id: number, data: Prisma.AuthorUpdateInput) {
-    return this.prisma.author.update({ where: { id }, data });
+  async update(id: number, updateAuthorDto: UpdateAuthorDto) {
+    return this.prisma.author.update({
+      where: { id },
+      data: updateAuthorDto,
+    });
   }
 
-  remove(id: number) {
-    return this.prisma.author.delete({ where: { id } });
+  async remove(id: number) {
+    return this.prisma.author.delete({
+      where: { id },
+    });
   }
 
-  // ✅ NOVO MÉTODO (agora DENTRO da classe)
-  findByCountry(country: string) {
+   async findByCountry(country: string) {
     return this.prisma.author.findMany({
-      where: { country: { contains: country, mode: 'insensitive' } },
+      where: {
+        country: {
+          contains: country,
+          mode: 'insensitive'
+        }
+      },
     });
   }
 }

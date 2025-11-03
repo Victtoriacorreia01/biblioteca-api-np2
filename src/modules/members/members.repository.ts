@@ -1,0 +1,70 @@
+import { Injectable } from '@nestjs/common';
+import { PrismaService } from '../../../prisma/prisma.service';
+import { Member } from './entities/member.entity';
+import { CreateMemberDto } from './dto/create-member.dto';
+import { UpdateMemberDto } from './dto/update-member.dto';
+
+@Injectable()
+export class MembersRepository {
+  constructor(private readonly prisma: PrismaService) {}
+
+  async create(createMemberDto: CreateMemberDto): Promise<Member> {
+    return this.prisma.member.create({
+      data: {
+        fullName: createMemberDto.fullName,
+        email: createMemberDto.email,
+        phone: createMemberDto.phone || '', // Valor padrão para phone
+        isActive: createMemberDto.isActive ?? true, // Valor padrão true
+      },
+    });
+  }
+
+  async findAll(): Promise<Member[]> {
+    return this.prisma.member.findMany({
+      orderBy: { registeredAt: 'desc' }
+    });
+  }
+
+  async findOne(id: number): Promise<Member | null> {
+    return this.prisma.member.findUnique({
+      where: { id },
+    });
+  }
+
+  async findByEmail(email: string): Promise<Member | null> {
+    return this.prisma.member.findUnique({
+      where: { email },
+    });
+  }
+
+  async update(id: number, updateMemberDto: UpdateMemberDto): Promise<Member> {
+    return this.prisma.member.update({
+      where: { id },
+      data: {
+        ...(updateMemberDto.fullName && { fullName: updateMemberDto.fullName }),
+        ...(updateMemberDto.email && { email: updateMemberDto.email }),
+        ...(updateMemberDto.phone !== undefined && { phone: updateMemberDto.phone }),
+        ...(updateMemberDto.isActive !== undefined && { isActive: updateMemberDto.isActive }),
+      },
+    });
+  }
+
+  async remove(id: number): Promise<Member> {
+    return this.prisma.member.delete({
+      where: { id },
+    });
+  }
+
+  async deactivate(id: number): Promise<Member> {
+    return this.prisma.member.update({
+      where: { id },
+      data: { isActive: false },
+    });
+  }
+
+  async getActiveMembersCount(): Promise<number> {
+    return this.prisma.member.count({
+      where: { isActive: true }
+    });
+  }
+}
