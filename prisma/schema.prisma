@@ -72,3 +72,4 @@ model Loan {
   member     Member     @relation(fields: [memberId], references: [id])
   book       Book       @relation(fields: [bookId], references: [id])
 }
+
