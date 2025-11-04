@@ -1,0 +1,12 @@
+-- AlterTable
+ALTER TABLE "Author" ALTER COLUMN "updatedAt" DROP DEFAULT;
+
+-- AlterTable
+ALTER TABLE "Book" ALTER COLUMN "updatedAt" DROP DEFAULT;
+
+-- AlterTable
+ALTER TABLE "Loan" ALTER COLUMN "updatedAt" DROP DEFAULT;
+
+-- AlterTable
+ALTER TABLE "Member" ALTER COLUMN "phone" DROP NOT NULL,
+ALTER COLUMN "updatedAt" DROP DEFAULT;

@@ -3,7 +3,7 @@ import { CreateLoanDto } from './create-loan.dto';
 import { IsOptional, IsDateString, IsEnum } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
-// Define o enum manualmente
+
 export enum LoanStatus {
   OPEN = 'OPEN',
   RETURNED = 'RETURNED', 
