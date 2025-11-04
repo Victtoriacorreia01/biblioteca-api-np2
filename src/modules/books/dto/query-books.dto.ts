@@ -1,13 +1,15 @@
 import { ApiPropertyOptional } from '@nestjs/swagger';
 import { IsBooleanString, IsInt, IsOptional, IsString } from 'class-validator';
-
+import { Type } from 'class-transformer';
 export class QueryBookDto {
   @ApiPropertyOptional() @IsOptional() @IsString()
   title?: string;
 
-  @ApiPropertyOptional() @IsOptional() @IsInt()
+  @Type(() => Number)
+  @ApiPropertyOptional() @IsOptional() @IsInt() 
   authorId?: number;
 
+  @Type(() => Number)
   @ApiPropertyOptional() @IsOptional() @IsInt()
   categoryId?: number;
 

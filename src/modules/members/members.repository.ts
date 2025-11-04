@@ -13,8 +13,8 @@ export class MembersRepository {
       data: {
         fullName: createMemberDto.fullName,
         email: createMemberDto.email,
-        phone: createMemberDto.phone || '', // Valor padrão para phone
-        isActive: createMemberDto.isActive ?? true, // Valor padrão true
+        phone: createMemberDto.phone || null, 
+        isActive: createMemberDto.isActive ?? true, 
       },
     });
   }

@@ -6,10 +6,10 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  // validação global (limpa campos extras e bloqueia não permitidos)
+  
   app.useGlobalPipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }));
 
-  // Swagger em /docs
+  
   const config = new DocumentBuilder()
     .setTitle('Biblioteca API')
     .setDescription('NP2 – Biblioteca Virtual Pública')

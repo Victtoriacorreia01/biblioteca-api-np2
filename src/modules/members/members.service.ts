@@ -8,7 +8,7 @@ export class MembersService {
   constructor(private readonly membersRepository: MembersRepository) {}
 
   async create(createMemberDto: CreateMemberDto) {
-    // Verificar se email já existe
+    
     const existingMember = await this.membersRepository.findByEmail(createMemberDto.email);
     if (existingMember) {
       throw new ConflictException('Email já cadastrado');
@@ -30,9 +30,9 @@ export class MembersService {
   }
 
   async update(id: number, updateMemberDto: UpdateMemberDto) {
-    await this.findOne(id); // Verifica se existe
+    await this.findOne(id); 
     
-    // Se estiver atualizando email, verificar duplicata
+    
     if (updateMemberDto.email) {
       const existingMember = await this.membersRepository.findByEmail(updateMemberDto.email);
       if (existingMember && existingMember.id !== id) {
@@ -44,16 +44,16 @@ export class MembersService {
   }
 
   async remove(id: number) {
-    await this.findOne(id); // Verifica se existe
+    await this.findOne(id); 
     return this.membersRepository.remove(id);
   }
 
   async deactivate(id: number) {
-    await this.findOne(id); // Verifica se existe
+    await this.findOne(id); 
     return this.membersRepository.deactivate(id);
   }
 
-  // FUNCIONALIDADE EXTRA - Relatório de membros ativos
+  
   async getMembersReport() {
     const totalMembers = await this.membersRepository.findAll();
     const activeMembersCount = await this.membersRepository.getActiveMembersCount();
@@ -62,7 +62,7 @@ export class MembersService {
       totalMembers: totalMembers.length,
       activeMembers: activeMembersCount,
       inactiveMembers: totalMembers.length - activeMembersCount,
-      lastRegistered: totalMembers.slice(0, 5) // Últimos 5 cadastrados
+      lastRegistered: totalMembers.slice(0, 5)
     };
   }
 }
